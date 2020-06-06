@@ -522,6 +522,19 @@ namespace TrenchBroom {
                     out += read<T,R>();
                 }
             }
+
+            /**
+             * Reads a value of the given type, converts it to unsigned short and returns that.
+             *
+             * @tparam T the type of the underlying value to read and convert to unsigned short
+             * @return the unsigned short value
+             *
+             * @throw ReaderException if reading fails
+             */
+            template <typename T>
+            unsigned short readUnsignedShort() {
+                return read<T, unsigned short>();
+            }
         };
 
         /**
