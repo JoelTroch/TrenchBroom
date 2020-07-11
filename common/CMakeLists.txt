@@ -50,6 +50,7 @@ set(COMMON_SOURCE
         ${COMMON_SOURCE_DIR}/IO/GameConfigParser.cpp
         ${COMMON_SOURCE_DIR}/IO/GameEngineConfigParser.cpp
         ${COMMON_SOURCE_DIR}/IO/GameEngineConfigWriter.cpp
+        ${COMMON_SOURCE_DIR}/IO/HlMdlParser.cpp
         ${COMMON_SOURCE_DIR}/IO/HlMipTextureReader.cpp
         ${COMMON_SOURCE_DIR}/IO/IdMipTextureReader.cpp
         ${COMMON_SOURCE_DIR}/IO/IdPakFileSystem.cpp
@@ -556,6 +557,7 @@ set(COMMON_HEADER
         ${COMMON_SOURCE_DIR}/IO/GameConfigParser.h
         ${COMMON_SOURCE_DIR}/IO/GameEngineConfigParser.h
         ${COMMON_SOURCE_DIR}/IO/GameEngineConfigWriter.h
+        ${COMMON_SOURCE_DIR}/IO/HlMdlParser.h
         ${COMMON_SOURCE_DIR}/IO/HlMipTextureReader.h
         ${COMMON_SOURCE_DIR}/IO/IdMipTextureReader.h
         ${COMMON_SOURCE_DIR}/IO/IdPakFileSystem.h

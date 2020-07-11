@@ -37,6 +37,7 @@
 #include "IO/File.h"
 #include "IO/FileMatcher.h"
 #include "IO/GameConfigParser.h"
+#include "IO/HlMdlParser.h"
 #include "IO/IOUtils.h"
 #include "IO/MdlParser.h"
 #include "IO/Md2Parser.h"
@@ -402,6 +403,11 @@ namespace TrenchBroom {
                     auto reader = file->reader().buffer();
                     IO::MdlParser parser(modelName, std::begin(reader), std::end(reader), palette);
                     return parser.initializeModel(logger);
+                } else if (extension == "mdl" && kdl::vec_contains(supported, "hlmdl")) {
+                    // TODO 1140: Add DOL extension and support (Half-Life PlayStation 2)
+                    auto reader = file->reader().buffer();
+                    IO::HlMdlParser parser(modelName, std::begin(reader), std::end(reader), m_fs, extension, path.asString());
+                    return parser.initializeModel(logger);
                 } else if (extension == "md2" && kdl::vec_contains(supported, "md2")) {
                     const auto palette = loadTexturePalette();
                     auto reader = file->reader().buffer();
@@ -461,6 +467,11 @@ namespace TrenchBroom {
                     const auto palette = loadTexturePalette();
                     auto reader = file->reader().buffer();
                     IO::MdlParser parser(modelName, std::begin(reader), std::end(reader), palette);
+                    parser.loadFrame(frameIndex, model, logger);
+                } else if (extension == "mdl" && kdl::vec_contains(supported, "hlmdl")) {
+                    // TODO 1140: Add DOL extension and support (Half-Life PlayStation 2)
+                    auto reader = file->reader().buffer();
+                    IO::HlMdlParser parser(modelName, std::begin(reader), std::end(reader), m_fs, extension, path.asString());
                     parser.loadFrame(frameIndex, model, logger);
                 } else if (extension == "md2" && kdl::vec_contains(supported, "md2")) {
                     const auto palette = loadTexturePalette();

@@ -488,6 +488,19 @@ namespace TrenchBroom {
             }
 
             /**
+             * Reads a value of the given type, converts it to short and returns that.
+             *
+             * @tparam T the type of the underlying value to read and convert to short
+             * @return the short value
+             *
+             * @throw ReaderException if reading fails
+             */
+            template <typename T>
+            short readShort() {
+                return read<T, short>();
+            }
+
+            /**
              * Reads values of the given type T, converts them to the given type R and stores them in the given
              * collection. The collection must support push_back.
              *
